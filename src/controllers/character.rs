@@ -7,12 +7,12 @@ const PATH_TO_DB: &str = "./db/mbtl.db";
 
 pub async fn get_characters() -> impl IntoResponse {
     let conn = Connection::open(PATH_TO_DB).unwrap();
-    let mut query = conn.prepare("SELECT id, name, nickname FROM character;").unwrap();
+    let mut query = conn.prepare("SELECT name, nickname FROM character;").unwrap();
     let character_iter = query.query_map([], |row| {
         Ok(Character{
-            id: row.get(0)?,
-            name: row.get(1)?,
-            nickname: row.get(2)?,
+            id: None,
+            name: row.get(0)?,
+            nickname: row.get(1)?,
         })
     }).unwrap();
 
