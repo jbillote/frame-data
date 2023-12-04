@@ -1,2 +1,2 @@
-pub mod character;
 pub mod attack;
+pub mod character;

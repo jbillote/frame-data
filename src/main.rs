@@ -1,9 +1,6 @@
-use axum::{
-    routing::{get},
-    Router,
-};
+use crate::controllers::attack::{get_attack, get_attacks};
 use crate::controllers::character::get_characters;
-use crate::controllers::attack::{ get_attack, get_attacks };
+use axum::{routing::get, Router};
 
 mod controllers;
 mod models;
