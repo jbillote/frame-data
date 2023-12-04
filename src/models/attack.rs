@@ -4,16 +4,28 @@ use serde::{ Deserialize, Serialize };
 pub struct Attack {
     pub name: String,
     pub input: String,
-    pub damage: String,
-    pub block: String,
-    pub cancel: String,
-    pub property: String,
-    pub cost: String,
-    pub attribute: String,
-    pub startup: String,
-    pub active: String,
-    pub recovery: String,
-    pub overall: String,
-    pub advantage: String,
-    pub invuln: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub damage: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub block: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub cancel: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub property: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub cost: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub attribute: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub startup: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub active: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub recovery: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub overall: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub advantage: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub invuln: Option<String>,
 }
