@@ -10,8 +10,8 @@ pub async fn get_attacks(Path(character_name): Path<String>) -> impl IntoRespons
     let mut query = conn
         .prepare(
             "SELECT name, input FROM move WHERE charId = 
-        (SELECT id FROM character WHERE LOWER(name) = LOWER(:name) OR 
-        LOWER(nickname) = LOWER(:name));",
+            (SELECT id FROM character WHERE LOWER(name) = LOWER(:name) OR 
+            LOWER(nickname) = LOWER(:name));",
         )
         .unwrap();
     let move_iter = query
@@ -50,10 +50,10 @@ pub async fn get_attack(
     let mut query = conn
         .prepare(
             "SELECT name, input, damage, block, cancel, 
-        property, cost, attribute, startup, active, recovery, overall, 
-        advantage, invuln FROM move WHERE charId = (SELECT id FROM character 
-        WHERE LOWER(name) = LOWER(:name) OR LOWER(nickname) = LOWER(:name)) AND 
-        LOWER(input) = LOWER(:input);",
+            property, cost, attribute, startup, active, recovery, overall, 
+            advantage, invuln FROM move WHERE charId = (SELECT id FROM 
+            character WHERE LOWER(name) = LOWER(:name) OR LOWER(nickname) = 
+            LOWER(:name)) AND LOWER(input) = LOWER(:input);",
         )
         .unwrap();
     let move_iter = query
